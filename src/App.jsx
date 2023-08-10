@@ -3,8 +3,12 @@
 // import Header from "../component/Header";
 // import React from "react";
 // import ReactDOM from "react-dom/client";
-import "./index.css";
-import Pack from "./components/Pack";
+// import "./index.css";
+// import Pack from "./components/Pack";
+import { useState } from "react";
+import "./components/Acco.css";
+import Tip from "./components/Tip";
+import QrCodeInfo from "./components/QRcode";
 
 const pizzaData = [
   {
@@ -89,7 +93,11 @@ function App() {
       {/* <Header></Header>
       <Menu></Menu>
       <Footer></Footer> */}
-      <Pack />
+      {/* <Pack /> */}
+      {/* <Accordian /> */}
+      {/* <Acc /> */}
+      {/* <Tip /> */}
+      <QrCodeInfo />
     </>
   );
 }
@@ -176,6 +184,108 @@ function Order({ closeHour, openHour }) {
       </p>
       <button className="btn">Order</button>
     </div>
+  );
+}
+
+function Accordian() {
+  let obj = [
+    {
+      title: "title1",
+      content: "first one sadgffsdafsdafasdfasdf",
+    },
+    {
+      title: "title2",
+      content: "second one ",
+    },
+    {
+      title: "title3",
+      content: "third one ",
+    },
+    {
+      title: "title4",
+      content: "forth one ",
+    },
+  ];
+  return (
+    <>
+      <div className="container">
+        {obj.map((tag, i) => {
+          return (
+            <details className="details" key={i}>
+              <summary className="summery">{tag.title}</summary>
+              {tag.content}
+            </details>
+          );
+        })}
+      </div>
+    </>
+  );
+}
+
+function Acc() {
+  const [open, setIsOpen] = useState(false);
+  let obj = [
+    {
+      title: "HTML",
+      content:
+        "HTML is the markup language used to give the structure form the webpage , their are set of definded tag which support diffrent types of data format which that tag will hold data about and it is rendered by browsers",
+    },
+    {
+      title: "CSS",
+      content:
+        "CSS is used for styling , it gives the mordern look to our webpage , by adding some cool colors ,transition, animations etc.. , it is the way to define which UI component will displaced with what size and at what position",
+    },
+    {
+      title: "JS",
+      content:
+        "JS is the most important which makes webpages live , which helps in making webpages interactive , it has DOM tree on which we whole document is listed in the tree fromat , we can handle events and do lot's of things  ",
+    },
+    {
+      title: "REACT",
+      content:
+        "REACT is the framework which makes the webpage like an app which brings the content and impart it into webpage without reploding and improves user interface and intreaction with good user expreinces , this magic happens with the help of state , we need to handle the state and update when specific actions are preformed on the webpage",
+    },
+  ];
+  function del(el) {}
+  return (
+    <>
+      <div className="con">
+        {obj.map((el, i) => {
+          {
+            console.log("runedfor i ", i);
+          }
+          return <Abox data={el} key={i} />;
+        })}{" "}
+      </div>
+    </>
+  );
+}
+
+function Abox({ data }) {
+  let [text, setText] = useState("");
+  function close() {
+    // text ? setText("") : setText(data.content);
+    if (text) {
+      setText("");
+    } else {
+      setText(data.content);
+    }
+  }
+
+  return (
+    <>
+      <div className="block">
+        <button className="text" onClick={close}>
+          {data.title}
+          {text ? (
+            <span className="sign">-</span>
+          ) : (
+            <span className="sign">+</span>
+          )}
+        </button>
+        <div className={text ? "content" : ""}>{open ? text : ""}</div>
+      </div>
+    </>
   );
 }
 

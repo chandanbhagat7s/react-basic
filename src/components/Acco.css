@@ -1,0 +1,53 @@
+.container {
+  height: 50vh;
+  height: max-content;
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.details {
+  padding: 2rem;
+  background-color: black;
+  color: white;
+}
+.summery {
+  padding: 2rem;
+  background-color: gray;
+  color: black;
+}
+.con {
+  width: 50vw;
+  max-height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.block {
+  position: relative;
+  text-align: center;
+  margin-top: 4vh;
+}
+
+.block > button {
+  width: 50vw;
+  text-align: center;
+  padding: 2vh;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  border-radius: 2vh;
+}
+.content {
+  transition: all 2s;
+  background-color: gray;
+  border-radius: 2vh;
+  padding: 2vh;
+}
+.sign {
+  position: absolute;
+  /* margin-left: 3rem; */
+  color: red;
+  right: 10px;
+}
